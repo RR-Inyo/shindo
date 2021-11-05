@@ -29,6 +29,6 @@ Three filters are applied to the spectra, namely, the periodic-effect filter, th
 ## `shindo.getShindo(a: numpy.ndarray, Ts: float) -> float`
 Giving an NumPy array `a` whose shape is (N, 3) to this `shindo.getShindo()` function returns the JMA *instrumental* shindo value, which corresponds to the result, $I$, after Step 7 above. `Ts` is the sampling period. Usually, Ts = 0.01 if you give this function the recorded past seismic data from the JMA website.
 
-## `shindo.getShindoName(I: float, lang: str = 'jp') -> str
+## `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
 This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo 5-, 5+, 6-, and 6+ becomes 5弱, 5強, 6弱, and 6強 by this function.
 if `lang != 'jp'`, 5-, 5+, 6-, and 6+ are returned, as a string. Shindo 0-4 are also returned as a string.
