@@ -2,7 +2,7 @@
 Calculates JMA (Japan Meteorological Agency) seismic intensity (shindo) scale from acceleration data stored in NumPy array
 
 ## Introduction
-Japan is a country known for frequent earthquake occurrence. A special scale to evaluate the seismic intensity scale called *shindo* (震度) have been defined by the Japan Meteorological Agency (JMA).
+Japan is a country known for frequent earthquake occurrence. A special scale to evaluate the seismic intensity called *shindo* (震度) have been defined by the Japan Meteorological Agency (JMA).
 Long ago, the shindo scale was determined by personnel who inspect the damaged area in person to observe the ratio of collapsed houses, etc.
 However, from a few decades ago, it was begun to calculate the shindo scale from digital accelerometers. The shindo scale has values from 0 to 7, where actually 5 and 6 are devided into 5-, 5+, 6-, and 6+.
 
