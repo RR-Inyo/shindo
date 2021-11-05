@@ -36,3 +36,6 @@ The number of data points of the NumPy array data, N, is arbitrary. However, the
 #### `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
 This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo 5-, 5+, 6-, and 6+ becomes 5弱, 5強, 6弱, and 6強 by this function.
 if `lang != 'jp'`, 5-, 5+, 6-, and 6+ are returned, as a string. Shindo 0-4 are also returned as a string.
+
+## Test bench
+This module contains the `if __name__ = '__main__':' section in order to allow to be run and test itself. A data of past major earthquake, which was observed in Yonago, Tottori, Japan, is automatically downloaded as a CSV file and the acceleration data is acquired as a NumPy array. The calculation will show shindo 5.1, which is equal to the value available on the JMA website. You can change the past earthquake if you know the URL of the CSV file. See [this website](https://www.data.jma.go.jp/svd/eqev/data/kyoshin/jishin/index.html) for the past major earthquake acceleration data.
