@@ -1,17 +1,17 @@
 # shindo.py
 Calculates JMA (Japan Meteorological Agency) seismic intensity (shindo) scale from acceleration data stored in NumPy array
 
-# Introduction
+## Introduction
 Japan is a country known for frequent earthquake occurrence. A special scale to evaluate the seismic intensity scale called *shindo* (震度) have been defined by the Japan Meteorological Agency (JMA).
 Long ago, the shindo scale was determined by personnel who inspect the damaged area in person to observe the ratio of collapsed houses, etc.
 However, from a few decades ago, it was begun to calculate the shindo scale from digital accelerometers. The shindo scale has values from 0 to 7, where actually 5 and 6 are devided into 5-, 5+, 6-, and 6+.
 
 This Python module, `shindo.py`, calculates the shindo scale from 3-D acceleration data stored in an NumPy array in the unit of [gal] or [cm/s<sup>2</sup>].
 
-# Calculation method
+## Calculation method
 Usually, the acceleration data for north-south, east-west, and up-down axes are acquired every 10 ms to calculate shindo. If a NumPy array stores the acceleration data as such in [gal], this Python module can calculates shindo.
 
-## Calculation steps
+### Calculation steps
 There are seven steps to calculate shindo from acceleration data.
 
 1. Each of the 3-D acceleration data is transformed into frequency domain by DFT or FFT.
@@ -22,17 +22,17 @@ There are seven steps to calculate shindo from acceleration data.
 6. A value called I is obtained by I = 2 log<sub>10</sub> a + 0.94.
 7. I is rounded at the third digits from the decimal point and cut off the fractional values below the second digit from the decimal point.
 
-## Special filters
+### Special filters
 Three filters are applied to the spectra, namely, the periodic-effect filter, the high-cut filter, and the low-cat filter. THe detail of these functions can be found in the [WikiPedia article](https://ja.wikipedia.org/wiki/%E6%B0%97%E8%B1%A1%E5%BA%81%E9%9C%87%E5%BA%A6%E9%9A%8E%E7%B4%9A), but the gain of the filters are shown below.
 
 ![Periodic-effect, high-cut, and low-cut filters](filters.png)
 
-# How to use
-### `shindo.getShindo(a: numpy.ndarray, Ts: float) -> float`
+## How to use
+#### `shindo.getShindo(a: numpy.ndarray, Ts: float) -> float`
 Giving an NumPy array `a` whose shape is (N, 3) to this `shindo.getShindo()` function returns the JMA *instrumental* shindo value, which corresponds to the result, I, after Step 7 above. `Ts` is the sampling period. Usually, Ts = 0.01 if you give this function the recorded past seismic data from the JMA website.
 
 The number of data points of the NumPy array data, N, is arbitrary. However, the number of data points should contain enough length in time domain, e.g., 5 seconds, to enable accurate calculation of shindo. If Ts = 10 ms, N = 500 for 5 seconds of acceleration data.
 
-### `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
+#### `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
 This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo 5-, 5+, 6-, and 6+ becomes 5弱, 5強, 6弱, and 6強 by this function.
 if `lang != 'jp'`, 5-, 5+, 6-, and 6+ are returned, as a string. Shindo 0-4 are also returned as a string.
