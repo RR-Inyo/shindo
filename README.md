@@ -33,7 +33,7 @@ In frequency domain, &ldquo;applying filters&rdquo; means just multiplying the g
 #### `shindo.getShindo(a: numpy.ndarray, Ts: float) -> float`
 Giving an NumPy array `a` whose shape is (N, 3) to this `shindo.getShindo()` function returns the JMA *instrumental* shindo value, which corresponds to the result, I, after Step 7 above. `Ts` is the sampling period. Usually, Ts = 0.01 if you give this function the recorded past seismic data from the JMA website.
 
-The number of data points of the NumPy array data, N, is arbitrary. However, the number of data points should contain enough length in time domain, e.g., 5 seconds, to enable accurate calculation of shindo. If Ts = 10 ms, N = 500 for 5 seconds of acceleration data.
+The number of data points of the NumPy array, N, is arbitrary. However, the number of data points should contain enough length in time domain, e.g., 5 seconds, to enable accurate calculation of shindo. If Ts = 10 ms, N = 500 for 5 seconds of acceleration data.
 
 #### `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
 This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo 5-, 5+, 6-, and 6+ becomes 5弱, 5強, 6弱, and 6強 by this function.
