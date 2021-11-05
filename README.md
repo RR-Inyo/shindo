@@ -23,7 +23,7 @@ There are seven steps to calculate shindo from acceleration data.
 7. I is rounded at the third digits from the decimal point and cut off the fractional values below the second digit from the decimal point.
 
 ### Special filters
-Three filters are applied to the spectra, namely, the periodic-effect filter, the high-cut filter, and the low-cat filter. THe detail of these functions can be found in the [WikiPedia article](https://ja.wikipedia.org/wiki/%E6%B0%97%E8%B1%A1%E5%BA%81%E9%9C%87%E5%BA%A6%E9%9A%8E%E7%B4%9A), but the gain of the filters are shown below.
+Three filters are applied to the spectra, namely, the periodic-effect filter, the high-cut filter, and the low-cat filter. The detail of these functions can be found in the [WikiPedia article](https://ja.wikipedia.org/wiki/%E6%B0%97%E8%B1%A1%E5%BA%81%E9%9C%87%E5%BA%A6%E9%9A%8E%E7%B4%9A), but the gain of the filters are shown below.
 
 ![Periodic-effect, high-cut, and low-cut filters](filters.png)
 
