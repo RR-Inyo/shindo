@@ -31,13 +31,13 @@ In frequency domain, &ldquo;applying filters&rdquo; means just multiplying the g
 
 ## How to use
 #### `shindo.getShindo(a: numpy.ndarray, Ts: float) -> float`
-Giving an NumPy array `a` whose shape is (N, 3) to this `shindo.getShindo()` function returns the JMA *instrumental* shindo value, which corresponds to the result, I, after Step 7 above. `Ts` is the sampling period. Usually, Ts = 0.01 if you give this function the recorded past seismic data from the JMA website.
+Giving a NumPy array `a` whose shape is (N, 3) to this `shindo.getShindo()` function returns the JMA *instrumental* shindo value, which corresponds to the result, I, after Step 7 above. `Ts` is the sampling period. Usually, Ts = 0.01 if you give this function the recorded past seismic data from the JMA website.
 
 The number of data points of the NumPy array, N, is arbitrary. However, the number of data points should contain enough length in time domain, e.g., 5 seconds, to enable accurate calculation of shindo. If Ts = 10 ms, N = 500 for 5 seconds of acceleration data.
 
 #### `shindo.getShindoName(I: float, lang: str = 'jp') -> str`
-This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo 5-, 5+, 6-, and 6+ becomes 5弱, 5強, 6弱, and 6強 by this function.
-if `lang != 'jp'`, 5-, 5+, 6-, and 6+ are returned, as a string. Shindo 0-4 are also returned as a string.
+This functon converts the JMA instrumental shindo scale, which may have fractional values below the decimal point, into the actual shindo scale. If `lang = 'jp'` is given, shindo '5-', '5+', '6-', and '6+' becomes '5弱', '5強', '6弱', and '6強' by this function.
+if `lang != 'jp'`, '5-', '5+', '6-', and '6+' are returned, as a string. Shindo 0-4 are also returned as a string.
 
 ## Test bench
 This module contains the `if __name__ == '__main__':` section in order to allow to be run and test itself. A data of past major earthquake, which was observed in Yonago, Tottori, Japan, is automatically downloaded as a CSV file and the acceleration data is acquired as a NumPy array. The calculation will show shindo 5.1, which is equal to the value available on the JMA website. You can change the past earthquake if you know the URL of the CSV file. See [this website](https://www.data.jma.go.jp/svd/eqev/data/kyoshin/jishin/index.html) for the past major earthquake acceleration data.
