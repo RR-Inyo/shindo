@@ -9,13 +9,13 @@ However, from a few decades ago, it was begun to calculate the shindo scale from
 This Python module, `shindo.py`, calculates the shindo scale from 3-D acceleration data stored in a NumPy array in the unit of [gal] or [cm/s<sup>2</sup>].
 
 ## Calculation method
-Usually, the acceleration data for north-south, east-west, and up-down axes are acquired every 10 ms to calculate shindo. If a NumPy array stores the acceleration data as such in [gal], this Python module can calculates shindo.
+Usually, the acceleration data for north-south, east-west, and up-down axes are acquired every 10 ms to calculate shindo. If a NumPy array stores the acceleration data as such in [gal], this Python module can calculate shindo.
 
 ### Calculation steps
 There are seven steps to calculate shindo from acceleration data.
 
 1. Each of the 3-D acceleration data is transformed into frequency domain by DFT or FFT.
-2. Three special filters are appplied to the 3-D acceleration spectra.
+2. Three special filters are applied to the 3-D acceleration spectra.
 3. The spectra is transformed back into time domain by inverse DFT or FFT.
 4. The root-sum-square (RSS) acceleration (i.e. the absolute value of the vector sum) is calculated from the time-domain north-south, east-west, and up-down data obtained in 3.
 5. A value called a is found where the RSS acceleration is above the value of a for 0.3 seconds.
