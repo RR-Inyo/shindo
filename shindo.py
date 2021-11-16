@@ -21,22 +21,22 @@ def _filter(A: np.ndarray, Ts: float) -> None:
 
     # Periodic-effect filter
     epsilon = 0.0001  # To prevent division by zero
-    fil_pe = np.sqrt(1 / (f + epsilon))
+    W_pe = np.sqrt(1 / (f + epsilon))
 
     # High-cut filter
     x = f / 10
-    fil_hc = 1 / np.sqrt( \
+    W_hc = 1 / np.sqrt( \
              1 + 0.694 * x**2 + 0.241 * x**4 + 0.0557 * x**6 \
              + 0.009664 * x**8 + 0.00134 * x**10 + 0.000155 * x**12 \
     )
 
     # Low-cut filter
-    fil_lc = np.sqrt(1 - np.exp(-(f / 0.5)**3))
+    W_lc = np.sqrt(1 - np.exp(-(f / 0.5)**3))
 
     # Apply filter
-    A[:,0] *= (fil_pe * fil_hc * fil_lc)
-    A[:,1] *= (fil_pe * fil_hc * fil_lc)
-    A[:,2] *= (fil_pe * fil_hc * fil_lc)
+    A[:,0] *= (W_pe * W_hc * W_lc)
+    A[:,1] *= (W_pe * W_hc * W_lc)
+    A[:,2] *= (W_pe * W_hc * W_lc)
 
 def _search_aval(a: np.ndarray, Ts: float) -> float:
     """
