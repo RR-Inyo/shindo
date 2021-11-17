@@ -45,7 +45,7 @@ def _search_aval(a: np.ndarray, Ts: float) -> float:
     @param Ts Sampling period
     @return The a value found
     """
-    aval = 2000              # Initial value of search [gal]
+    aval = 2000.0            # Initial value of search [gal]
     T_ref = 0.3              # Time where acceleration is above the a value
     epsilon = T_ref * 0.001  # Acceptable error
     while True:
