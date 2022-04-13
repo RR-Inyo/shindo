@@ -18,9 +18,9 @@ There are seven steps to calculate shindo from acceleration data.
 2. Three special filters are applied to the 3-D acceleration spectra.
 3. The spectra is transformed back into time domain by inverse DFT or FFT.
 4. The root-sum-square (RSS) acceleration (i.e. the absolute value of the vector sum) is calculated from the time-domain north-south, east-west, and up-down data obtained in 3.
-5. A value called a is found where the RSS acceleration is above the value of a for 0.3 seconds.
-6. A value called I is obtained by I = 2 log<sub>10</sub> a + 0.94.
-7. I is rounded at the third digits from the decimal point and cut off the fractional values below the second digit from the decimal point.
+5. A value called <i>a</i> is found where the RSS acceleration is above the value of <i>a</i> for 0.3 seconds.
+6. A value called <i>I</i> is obtained by <i>I</i> = 2 log<sub>10</sub> <i>a</i> + 0.94.
+7. <i>I</i> is rounded at the third digits from the decimal point and cut off the fractional values below the second digit from the decimal point.
 
 ### Special filters
 Three filters are applied to the spectra, namely, the periodic-effect filter, the high-cut filter, and the low-cut filter. The mathematical expression of these filters can be found in the [WikiPedia article](https://ja.wikipedia.org/wiki/%E6%B0%97%E8%B1%A1%E5%BA%81%E9%9C%87%E5%BA%A6%E9%9A%8E%E7%B4%9A), but the gain of the filters are shown below.
